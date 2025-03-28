@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starflight's Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+            text-align: center;
+        }
+        .profile-container {
+            width: 350px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #2b2b3c;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: gray;
+            margin-right: 15px;
+        }
+        .username {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .bio {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .post {
+            background: #3b3b4f;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .caption {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .close {
+            cursor: pointer;
+            color: red;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="starflight-profile.jpg" alt="Profile Picture" class="profile-pic">
+            <div>
+                <div class="username">@StarflightTheThinker</div>
+                <div class="bio">"Just a NightWing trying to survive and figure out the truth. Books > Battles."</div>
+                <div>Followers: 98 | Following: 5</div>
+                <div>Dev~</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post" onclick="openModal('post1')">
+        <img src="your-image-url-1.jpg" alt="Post Image">
+        <div class="caption">📜 "The prophecy… is it even real? What if we were lied to?" #NightWingMysteries</div>
+    </div>
+    
+    <div class="post" onclick="openModal('post2')">
+        <img src="your-image-url-2.jpg" alt="Post Image">
+        <div class="caption">🔥 "Home… I guess? At least it’s warm (too warm, actually). #DarkSecret"</div>
+    </div>
+
+    <div class="post" onclick="openModal('post3')">
+        <img src="your-image-url-3.jpg" alt="Post Image">
+        <div class="caption">🐉 "Miss my real friends. Hope they’re okay. #TeamDragonets"</div>
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" id="modal-content">
+            <span class="close">Close</span>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(postId) {
+            let modalText = "";
+            if (postId === 'post1') {
+                modalText = "When the war has lasted twenty years... the dragonets will come. When the land is soaked in blood and tears... the dragonets will come. Find the SeaWing egg of deepest blue. Wings of night shall come to you. The largest egg in mountain high will give to you the wings of sky. For wings of earth, search through the mud for an egg the color of dragon blood. And hidden alone from the rival queens, the SandWing egg awaits unseen. Of three queens who blister and blaze and burn, two shall die and one shall learn if she bows to a fate that is stronger and higher, she'll have the power of wings of fire. Five eggs to hatch on brightest night, five dragons born to end the fight. Darkness will rise to bring the light. The dragonets are coming...";
+            } else if (postId === 'post2') {
+                modalText = "Starflight struggling with his identity after seeing the NightWing home for the first time.";
+            } else if (postId === 'post3') {
+                modalText = "Missing his friends and wondering if they’re safe.";
+            }
+            document.getElementById('modal-text').innerText = modalText;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
